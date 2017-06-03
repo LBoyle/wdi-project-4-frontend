@@ -8,8 +8,8 @@ Router.$inject = [
   '$locationProvider'
 ];
 function Router(
-  $stateProvider, 
-  $urlRouterProvider, 
+  $stateProvider,
+  $urlRouterProvider,
   $locationProvider
 ) {
 
@@ -40,6 +40,11 @@ function Router(
       url: '/rigs/:id',
       templateUrl: '/js/views/rigs/rigs-show.html',
       controller: 'RigsShowCtrl as rig'
+    })
+    .state('rigsEdit', {
+      url: '/rigs/:id',
+      templateUrl: '/js/views/rigs/rigs-edit.html',
+      controller: 'RigsEditCtrl as rig'
     })
     .state('partsShow', {
       url: '/parts/:id',
