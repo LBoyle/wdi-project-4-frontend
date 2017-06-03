@@ -8,7 +8,6 @@ function RigsShowCtrl(User, Rig, CurrentUserService, $stateParams) {
 
   Rig.get($stateParams).$promise
   .then(rig => {
-    console.log(rig);
     vm.rig = rig;
   });
 }

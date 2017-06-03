@@ -25,8 +25,13 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('rigsShow', {
       url: '/rigs/:id',
-      templateUrl: '/js/views/rigs/rig-show.html',
+      templateUrl: '/js/views/rigs/rigs-show.html',
       controller: 'RigsShowCtrl as rig'
+    })
+    .state('partsShow', {
+      url: '/parts/:id',
+      templateUrl: '/js/views/parts/parts-show.html',
+      controller: 'PartsShowCtrl as part'
     });
 
   $urlRouterProvider.otherwise('/');

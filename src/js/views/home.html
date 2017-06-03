@@ -10,17 +10,15 @@
 
 <div ng-show="main.user" class="container-fluid">
   <div class="row">
-    <div class="text-centered">
-      <h4>Welcome back {{main.user.username}}</h4>
-      {{ main.user }}
-    </div>
+    <h3>Welcome back {{main.user.username}}</h3>
   </div>
 
   <hr>
-
+  <h3>Your machines</h3>
   <div class="row">
     <div class="col-xs-6 col-sm-4" ng-repeat="rig in main.user.rigs">
-      {{rig}}
+      <p>{{rig.description}}</p>
+      <br>
       <a ui-sref="rigsShow({id: rig.id})">View</a>
     </div>
   </div>
