@@ -2,8 +2,14 @@ angular
   .module('pcBuilderApp')
   .controller('PartsShowCtrl', PartsShowCtrl);
 
-PartsShowCtrl.$inject = ['User', 'Part', 'CurrentUserService', '$stateParams'];
-function PartsShowCtrl(User, Part, CurrentUserService, $stateParams) {
+PartsShowCtrl.$inject = [
+  'Part',
+  '$stateParams'
+];
+function PartsShowCtrl(
+  Part, 
+  $stateParams
+) {
   const vm = this;
 
   Part.get($stateParams).$promise

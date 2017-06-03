@@ -2,8 +2,16 @@ angular
   .module('pcBuilderApp')
   .controller('LoginCtrl', LoginCtrl);
 
-LoginCtrl.$inject = ['User', 'CurrentUserService', '$state'];
-function LoginCtrl(User, CurrentUserService, $state) {
+LoginCtrl.$inject = [
+  'User',
+  'CurrentUserService',
+  '$state'
+];
+function LoginCtrl(
+  User, 
+  CurrentUserService, 
+  $state
+) {
   const vm = this;
 
   vm.login = () => {

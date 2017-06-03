@@ -4,11 +4,9 @@ angular
 
 Rig.$inject = ['API', '$resource'];
 function Rig(API, $resource) {
-  const Rig = $resource(`${API}/rigs/:id`, {id: '@_id'},
+  return $resource(`${API}/rigs/:id`, {id: '@_id'},
     {
       'update': { method: 'PUT' }
     }
   );
-
-  return Rig;
 }

@@ -1,0 +1,11 @@
+<h1>Rigs Index</h1>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4" ng-repeat="rig in rigs.rigs">
+    <ul>
+      <li>{{rig.description}}</li>
+      <li>Saved by {{rig.user.username}}</li>
+      <li><a ui-sref="rigsShow({id: rig.id})">View</a></li>
+    </ul>
+  </div>
+</div>

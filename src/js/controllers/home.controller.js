@@ -2,8 +2,8 @@ angular
   .module('pcBuilderApp')
   .controller('HomeCtrl', HomeCtrl);
 
-HomeCtrl.$inject = ['User', 'CurrentUserService', '$state'];
-function HomeCtrl(User, CurrentUserService, $state) {
+HomeCtrl.$inject = [];
+function HomeCtrl() {
   const vm = this;
 
 }

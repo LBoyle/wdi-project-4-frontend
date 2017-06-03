@@ -2,8 +2,16 @@ angular
   .module('pcBuilderApp')
   .config(Router);
 
-Router.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
-function Router($stateProvider, $urlRouterProvider, $locationProvider) {
+Router.$inject = [
+  '$stateProvider',
+  '$urlRouterProvider',
+  '$locationProvider'
+];
+function Router(
+  $stateProvider, 
+  $urlRouterProvider, 
+  $locationProvider
+) {
 
   $locationProvider.html5Mode(true);
 
@@ -22,6 +30,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/login',
       templateUrl: '/js/views/login.html',
       controller: 'LoginCtrl as login'
+    })
+    .state('rigsIndex', {
+      url: '/rigs',
+      templateUrl: '/js/views/rigs/rigs-index.html',
+      controller: 'RigsIndexCtrl as rigs'
     })
     .state('rigsShow', {
       url: '/rigs/:id',
