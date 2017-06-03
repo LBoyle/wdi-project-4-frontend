@@ -1,5 +1,5 @@
 angular
-  .module('myApp')
+  .module('pcBuilderApp')
   .controller('LoginCtrl', LoginCtrl);
 
 LoginCtrl.$inject = ['User', 'CurrentUserService', '$state'];

@@ -1,5 +1,5 @@
 angular
-  .module('myApp')
+  .module('pcBuilderApp')
   .controller('MainCtrl', MainCtrl);
 
 MainCtrl.$inject = [

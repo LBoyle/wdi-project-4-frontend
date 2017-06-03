@@ -1,5 +1,5 @@
 angular
-  .module('myApp')
+  .module('pcBuilderApp')
   .factory('User', userFactory);
 
 userFactory.$inject = ['API', '$resource'];

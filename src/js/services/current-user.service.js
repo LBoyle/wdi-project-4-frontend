@@ -1,5 +1,5 @@
 angular
-  .module('myApp')
+  .module('pcBuilderApp')
   .service('CurrentUserService', CurrentUserService);
 
 CurrentUserService.$inject = ['TokenService', '$rootScope', 'User'];

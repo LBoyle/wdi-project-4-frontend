@@ -1,1 +1,26 @@
 <h1>Homepage</h1>
+
+<div ng-hide="main.user" class="row">
+  <div class="">
+    <h4>Please <a ui-sref="login">log in</a></h4>
+  </div>
+</div>
+
+<hr>
+
+<div ng-show="main.user" class="container-fluid">
+  <div class="row">
+    <div class="text-centered">
+      <h4>Welcome back {{main.user.username}}</h4>
+      {{ main.user }}
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-4" ng-repeat="rig in main.user.rigs">
+      {{rig}}
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 angular
-  .module('myApp')
+  .module('pcBuilderApp')
   .service('TokenService', TokenService);
 
 TokenService.$inject = ['$window', 'jwtHelper'];

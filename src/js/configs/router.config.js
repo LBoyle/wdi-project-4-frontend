@@ -1,5 +1,5 @@
 angular
-  .module('myApp')
+  .module('pcBuilderApp')
   .config(Router);
 
 Router.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
@@ -10,7 +10,8 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: '/js/views/home.html'
+      templateUrl: '/js/views/home.html',
+      controller: 'HomeCtrl as home'
     })
     .state('register', {
       url: '/register',
@@ -21,6 +22,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/login',
       templateUrl: '/js/views/login.html',
       controller: 'LoginCtrl as login'
+    })
+    .state('rigsShow', {
+      url: '/rigs/:id',
+      templateUrl: '/js/views/rigs/rig-show.html',
+      controller: 'RigsShowCtrl as rig'
     });
 
   $urlRouterProvider.otherwise('/');
