@@ -39,17 +39,22 @@ function Router(
     .state('rigsShow', {
       url: '/rigs/:id',
       templateUrl: '/js/views/rigs/rigs-show.html',
-      controller: 'RigsShowCtrl as rig'
+      controller: 'RigsShowCtrl as rigs'
     })
     .state('rigsEdit', {
       url: '/rigs/:id',
       templateUrl: '/js/views/rigs/rigs-edit.html',
-      controller: 'RigsEditCtrl as rig'
+      controller: 'RigsEditCtrl as rigs'
+    })
+    .state('rigsNew', {
+      url: '/rigs/new',
+      templateUrl: '/js/views/rigs/rigs-new.html',
+      controller: 'RigsNewCtrl as rigs'
     })
     .state('partsShow', {
       url: '/parts/:id',
       templateUrl: '/js/views/parts/parts-show.html',
-      controller: 'PartsShowCtrl as part'
+      controller: 'PartsShowCtrl as parts'
     });
 
   $urlRouterProvider.otherwise('/');

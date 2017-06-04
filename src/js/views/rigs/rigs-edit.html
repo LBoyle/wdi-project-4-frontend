@@ -5,5 +5,10 @@
 </div>
 
 <div ng-show="main.user" class="row">
-  {{rig.rig}}
+  <ul>
+    <li>{{rigs.rig.description}}</li>
+    <li ng-repeat="part in rigs.rig.parts">{{part.name}}</li>
+  </ul>
+
+  {{rigs.rig}}
 </div>

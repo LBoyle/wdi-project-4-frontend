@@ -2,16 +2,16 @@
 
 <div class="row">
   <ul>
-    <li><strong>{{part.part.name}}</strong></li>
-    <li>{{part.part.description}}</li>
-    <li>{{part.part.parttypes[0].description}}</li>
+    <li><strong>{{parts.part.name}}</strong></li>
+    <li>{{parts.part.description}}</li>
+    <li>{{parts.part.parttypes[0].description}}</li>
   </ul>
-  <p>{{part.part.spec}}</p>
+  <p>{{parts.part.spec}}</p>
 </div>
 
 <div class="row">
   <h3>Incompatibilities</h3>
-  <div class="col-sm-6 col-md-4" ng-repeat="incompatibitily in part.part.incompatibilities">
+  <div class="col-sm-6 col-md-4" ng-repeat="incompatibitily in parts.part.incompatibilities">
     {{incompatibitily.name}}
   </div>
 </div>
