@@ -1,5 +1,32 @@
 <h1>Rigs New</h1>
 
-<form ng-submit="">
-  
+<!-- <form ng-submit="">
+  <div class="form-group">
+    <textarea class="form-control" type="text" name="description" ng-model="rigs.newRig.description" placeholder="Description"></textarea>
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="password" name="password" ng-model="" placeholder="Password">
+  </div>
+  <input class="btn btn-primary" type="submit" value="Submit">
+</form> -->
+
+Selection : {{rigs.partNames}}
+<br>
+<hr>
+part ids : {{rigs.partIds}}
+<br>
+<hr>
+
+<form ng-submit="rigs.submitParts()">
+  <div class="form-group" ng-repeat="type in rigs.types track by $index">
+    <label>{{type.description}}</label>
+    <select class="form-control" ng-model="rigs.partNames[$index]">
+      <option ng-repeat="part in type.parts" valie="part.id">{{part.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input class="form-control" type="text" name="description" ng-model="rigs.description">
+  </div>
+  <input type="submit" value="Submit">
 </form>
