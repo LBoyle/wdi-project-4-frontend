@@ -8,7 +8,8 @@ RigsNewCtrl.$inject = [
   'Parttype',
   'filterFilter',
   'TokenService',
-  '$rootScope'
+  '$rootScope',
+  '$state'
 ];
 function RigsNewCtrl(
   Rig,
@@ -16,7 +17,8 @@ function RigsNewCtrl(
   Parttype,
   filterFilter,
   TokenService,
-  $rootScope
+  $rootScope,
+  $state
 ) {
   const vm = this;
   // console.log(vm.newRig());
@@ -24,14 +26,6 @@ function RigsNewCtrl(
   vm.description = '';
   vm.partNames = [];
   vm.partIds = [];
-
-  vm.newRig = () => {
-    return {
-      description: vm.description,
-      user_id: TokenService.decodeToken().id,
-      parts: vm.partIds
-    };
-  };
 
   Part.query().$promise
   .then(res => {
@@ -42,8 +36,6 @@ function RigsNewCtrl(
     for (let i=0; i<vm.partNames.length; i++) {
       vm.partIds.push(filterFilter(vm.partsAll, {name: vm.partNames[i]})[0].id);
       if(i === vm.partNames.length-1) {
-        console.log(vm.newRig()+' outgoing');
-        $rootScope.$broadcast('loggedIn');
         vm.submitCallback();
       }
     }
@@ -51,12 +43,18 @@ function RigsNewCtrl(
 
   vm.submitCallback = () => {
     setTimeout(() => {
-      Rig.save(vm.newRig()).$promise
+      Rig.save({
+        rig: {
+          description: vm.description,
+          part_ids: vm.partIds
+        }
+      }).$promise
       .then(res => {
-        console.log(res.body+' response');
-
+        console.log(res.id);
+        $rootScope.$broadcast('userUpdate');
+        $state.go('rigsShow', {id: res.id});
       });
-    }, 50);
+    }, 100);
   };
 
   Parttype.query().$promise
