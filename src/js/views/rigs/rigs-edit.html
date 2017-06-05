@@ -4,11 +4,25 @@
   <h3>Please log in</h3>
 </div>
 
-<div ng-show="main.user" class="row">
-  <ul>
-    <li>{{rigs.rig.description}}</li>
-    <li ng-repeat="part in rigs.rig.parts">{{part.name}}</li>
-  </ul>
 
-  {{rigs.rig}}
-</div>
+Description : {{rigs.rig.description}}
+<br>
+<hr>
+<p ng-repeat="part in rigs.rig.parts">Selection : {{part.id}}</p>
+<br>
+<hr>
+{{rigs.updated}}
+
+<form ng-submit="rigs.updateRig()">
+  <div class="form-group" ng-repeat="type in rigs.types track by $index">
+    <label>{{type.description}}</label>
+    <select class="form-control" ng-model="rigs.updated.parts[$index]">
+      <option ng-repeat="part in type.parts" value="{{part.id}}">{{part.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input class="form-control" type="text" name="description" ng-model="rigs.rig.description">
+  </div>
+  <input type="submit" value="Submit">
+</form>

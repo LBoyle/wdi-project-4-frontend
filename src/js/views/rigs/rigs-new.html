@@ -12,7 +12,7 @@
 Description : {{rigs.description}}
 <br>
 <hr>
-Selection : {{rigs.partNames}}
+Selection : {{rigs.partIds}}
 <br>
 <hr>
 part ids : {{rigs.partIds}}
@@ -22,8 +22,8 @@ part ids : {{rigs.partIds}}
 <form ng-submit="rigs.submitParts()">
   <div class="form-group" ng-repeat="type in rigs.types track by $index">
     <label>{{type.description}}</label>
-    <select class="form-control" ng-model="rigs.partNames[$index]">
-      <option ng-repeat="part in type.parts" valie="part.id">{{part.name}}</option>
+    <select class="form-control" ng-model="rigs.partIds[$index]">
+      <option ng-repeat="part in type.parts" value="{{part.id}}">{{part.name}}</option>
     </select>
   </div>
   <div class="form-group">
