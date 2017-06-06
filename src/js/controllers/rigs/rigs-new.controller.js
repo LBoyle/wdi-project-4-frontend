@@ -21,21 +21,16 @@ function RigsNewCtrl(
   $state
 ) {
   const vm = this;
-  // console.log(vm.newRig());
 
   vm.description = '';
   vm.partIds = [];
-
-  Part.query().$promise
-  .then(res => {
-    vm.partsAll = res;
-  });
+  vm.nullVal = null;
 
   vm.submitParts = () => {
     Rig.save({
       rig: {
         description: vm.description,
-        part_ids: vm.partIds
+        part_ids: vm.partIds.filter(id => id != false)
       }
     }).$promise
     .then(res => {
