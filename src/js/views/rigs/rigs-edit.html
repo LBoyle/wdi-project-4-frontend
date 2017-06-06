@@ -11,110 +11,33 @@ Description : {{rigs.rig.description}}
 <p ng-repeat="part in rigs.rig.parts">{{part.name}}, {{part.parttypes[0]}}</p>
 <br>
 <hr>
-<!-- {{rigs.wholeParts}} -->
 
-<!-- <form ng-submit="rigs.updateRig()">
-
-  <div class="form-group" ng-repeat="type in rigs.types track by $index">
-    <label>{{type.description}}</label>
-    <select class="form-control" ng-model="rigs.updated.parts[$index]">
-      <option ng-repeat="part in type.parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>Description</label>
-    <input class="form-control" type="text" name="description" ng-model="rigs.rig.description">
-  </div>
-  <input type="submit" value="Submit">
-</form> -->
-
-
-
- <hr><br><hr>
-
-
-
-<!-- <form ng-submit="rigs.updateRig()">
-
-  <div class="form-group">
-    <label>{{rigs.types[0].description}}</label>
-    <select class="form-control" ng-model="rigs.updated.parts[$index]">
-      <option ng-repeat="part in rigs.types[0].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>{{rigs.types[1].description}}</label>
-    <select class="form-control" ng-model="rigs.updated.parts[$index]">
-      <option ng-repeat="part in rigs.types[1].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>{{rigs.types[2].description}}</label>
-    <select class="form-control" ng-model="rigs.updated.parts[$index]">
-      <option ng-repeat="part in rigs.types[2].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>{{rigs.types[3].description}}</label>
-    <select class="form-control" ng-model="rigs.updated.parts[$index]">
-      <option ng-repeat="part in rigs.types[3].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>{{rigs.types[4].description}}</label>
-    <select class="form-control" ng-model="rigs.updated.parts[$index]">
-      <option ng-repeat="part in rigs.types[4].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>{{rigs.types[5].description}}</label>
-    <select class="form-control" ng-model="rigs.updated.parts[$index]">
-      <option ng-repeat="part in rigs.types[5].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>Description</label>
-    <input class="form-control" type="text" name="description" ng-model="rigs.rig.description">
-  </div>
-  <input type="submit" value="Submit">
-</form> -->
-
-<hr>
-
-{{rigs.newRig}}
-{{rigs.rigPartsByType}}
+{{rigs.newParts}}
 
 <form ng-submit="rigs.updateRig()">
 
   <div
     class="form-group"
-    ng-repeat="type in rigs.types track by $index">
+    ng-repeat="part in rigs.rig.parts track by $index">
 
-    <label>{{type.description}}</label>
-    <select
+    <label>{{part.parttypes[0].description}}</label>
+    <!-- <select
       class="form-control"
-      ng-model="rigs.newRig[type.parttype]">
+      ng-model="rigs.newParts[$index]">
 
       <option
-        selected
-        value="rigs.filterRigPartsByCategory(type.parttype).id">
-        current - {{rigs.filterRigPartsByCategory(type.parttype).name}}
+        value="{{rigs.filterRigPartsByCategory(part.parttypes[0].parttype).id}}" selected>
+        {{rigs.filterRigPartsByCategory(part.parttypes[0].parttype).name}}
       </option>
 
       <option
-        ng-repeat="part in rigs.getPartsInCategory(rigs.filterRigPartsByCategory(type.parttype))"
+        ng-repeat="part in rigs.getPartsInCategory(part)"
         value="{{part.id}}">
         {{part.name}}
       </option>
 
-    </select>
+    </select> -->
+    <select ng-options="part.id as part.name for part in rigs.getPartsInCategoryx(part) track by part.id" ng-model="rigs.newParts[$index]"></select>
   </div>
 
   <div class="form-group">
