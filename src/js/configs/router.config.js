@@ -42,7 +42,7 @@ function Router(
       controller: 'RigsShowCtrl as rigs'
     })
     .state('rigsEdit', {
-      url: '/rigs/:id',
+      url: '/rigs/:id/edit',
       templateUrl: '/js/views/rigs/rigs-edit.html',
       controller: 'RigsEditCtrl as rigs'
     })

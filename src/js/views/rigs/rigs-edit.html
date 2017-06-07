@@ -4,40 +4,15 @@
   <h3>Please log in</h3>
 </div>
 
-
-Description : {{rigs.rig.description}}
-<br>
-<hr>
-<p ng-repeat="part in rigs.rig.parts">{{part.name}}, {{part.parttypes[0]}}</p>
-<br>
-<hr>
-
-{{rigs.newParts}}
-
 <form ng-submit="rigs.updateRig()">
 
   <div
     class="form-group"
-    ng-repeat="part in rigs.rig.parts track by $index">
-
-    <label>{{part.parttypes[0].description}}</label>
-    <!-- <select
-      class="form-control"
-      ng-model="rigs.newParts[$index]">
-
-      <option
-        value="{{rigs.filterRigPartsByCategory(part.parttypes[0].parttype).id}}" selected>
-        {{rigs.filterRigPartsByCategory(part.parttypes[0].parttype).name}}
-      </option>
-
-      <option
-        ng-repeat="part in rigs.getPartsInCategory(part)"
-        value="{{part.id}}">
-        {{part.name}}
-      </option>
-
-    </select> -->
-    <select ng-options="part.id as part.name for part in rigs.getPartsInCategoryx(part) track by part.id" ng-model="rigs.newParts[$index]"></select>
+    ng-repeat="type in rigs.types track by $index">
+    <label>{{type.description}}</label>
+    <select ng-options="part.id as part.name for part in type.parts" ng-model="rigs.newParts[type.parttype]">
+      <option value="">Select one</option>
+    </select>
   </div>
 
   <div class="form-group">
