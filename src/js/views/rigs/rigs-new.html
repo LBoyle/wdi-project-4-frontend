@@ -1,33 +1,12 @@
 <h1>Rigs New</h1>
 
-<!-- <form ng-submit="">
-  <div class="form-group">
-    <textarea class="form-control" type="text" name="description" ng-model="rigs.newRig.description" placeholder="Description"></textarea>
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="password" name="password" ng-model="" placeholder="Password">
-  </div>
-  <input class="btn btn-primary" type="submit" value="Submit">
-</form> -->
-Description : {{rigs.description}}
-<br>
-<hr>
-Selection : {{rigs.partIds}}
-<br>
-<hr>
-
 <form ng-submit="rigs.submitParts()">
 
   <div class="form-group" ng-repeat="type in rigs.types track by $index">
     <label>{{type.description}}</label>
-    <!-- <select class="form-control" ng-model="rigs.partIds[$index]">
-      <option value="rigs.nullVal"></option>
-      <option ng-repeat="part in type.parts" value="{{part.id}}">{{part.name}}</option>
-    </select> -->
     <select ng-options="part.id as part.name for part in type.parts" ng-model="rigs.partIds[$index]">
       <option value="">Select one</option>
     </select>
-    <!-- <select class="form-control" ng-model="rigs.partIds[$index]" ng-options=""></select> -->
   </div>
 
   <div class="form-group">
@@ -37,94 +16,3 @@ Selection : {{rigs.partIds}}
   <input type="submit" value="Submit">
 
 </form>
-
-
-<!-- ################################## -->
-
-<!-- <form ng-submit="rigs.submitParts()">
-
-
-  <div class="form-group">
-    <label>{{rigs.types[0].description}}</label>
-    <select class="form-control" ng-model="rigs.partIds[0]">
-      <option value="{{rigs.nullVal}}">Empty</option>
-      <option ng-repeat="part in rigs.types[0].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-    <p ng-show="rigs.partIds[0]">{{rigs.partIds[0]}}</p>
-  </div>
-
-
-  <div class="form-group">
-    <label>{{rigs.types[1].description}}</label>
-    <select class="form-control" ng-model="rigs.partIds[1]">
-      <option value="{{rigs.nullVal}}">Empty</option>
-      <option ng-repeat="part in rigs.types[1].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-    <p ng-show="rigs.partIds[1]">{{rigs.partIds[1]}}</p>
-  </div>
-
-
-  <div class="form-group">
-    <label>{{rigs.types[2].description}}</label>
-    <select class="form-control" ng-model="rigs.partIds[2]">
-      <option value="{{rigs.nullVal}}">Empty</option>
-      <option ng-repeat="part in rigs.types[2].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-    <p ng-show="rigs.partIds[2]">{{rigs.partIds[2]}}</p>
-  </div>
-
-  <div class="form-group">
-    <label>Second {{rigs.types[2].description}}</label>
-    <select class="form-control" ng-model="rigs.partIds[3]">
-      <option value="{{rigs.nullVal}}">Empty</option>
-      <option ng-repeat="part in rigs.types[2].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-    <p ng-show="rigs.partIds[3]">{{rigs.partIds[3]}}</p>
-  </div>
-
-
-  <div class="form-group">
-    <label>{{rigs.types[3].description}}</label>
-    <select class="form-control" ng-model="rigs.partIds[4]">
-      <option value="{{rigs.nullVal}}">Empty</option>
-      <option ng-repeat="part in rigs.types[3].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-    <p ng-show="rigs.partIds[4]">{{rigs.partIds[4]}}</p>
-  </div>
-
-
-  <div class="form-group">
-    <label>{{rigs.types[4].description}}</label>
-    <select class="form-control" ng-model="rigs.partIds[5]">
-      <option value="{{rigs.nullVal}}">Empty</option>
-      <option ng-repeat="part in rigs.types[4].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-    <p ng-show="rigs.partIds[5]">{{rigs.partIds[5]}}</p>
-  </div>
-
-  <div class="form-group">
-    <label>Second Drive</label>
-    <select class="form-control" ng-model="rigs.partIds[6]">
-      <option value="{{rigs.nullVal}}">Empty</option>
-      <option ng-repeat="part in rigs.types[4].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-    <p ng-show="rigs.partIds[6]">{{rigs.partIds[6]}}</p>
-  </div>
-
-
-  <div class="form-group">
-    <label>{{rigs.types[5].description}}</label>
-    <select class="form-control" ng-model="rigs.partIds[7]">
-      <option value="{{rigs.nullVal}}">Empty</option>
-      <option ng-repeat="part in rigs.types[5].parts" value="{{part.id}}">{{part.name}}</option>
-    </select>
-    <p ng-show="rigs.partIds[7]">{{rigs.partIds[7]}}</p>
-  </div>
-
-
-  <div class="form-group">
-    <label>Description</label>
-    <input class="form-control" type="text" name="description" ng-model="rigs.rig.description" placeholder="Write something about this machine">
-  </div>
-  <input type="submit" value="Submit">
-</form> -->

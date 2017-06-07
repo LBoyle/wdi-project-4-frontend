@@ -52,4 +52,12 @@ function RigsEditCtrl(
   vm.transposeToArr = () => {
     return Object.keys(vm.newParts).map(key => vm.newParts[key]).filter(id => id !== false && id != null);
   };
+
+  vm.deleteRig = () => {
+    Rig.delete($stateParams).$promise
+    .then(() => {
+      $rootScope.$broadcast('userUpdate');
+      $state.go('home');
+    });
+  };
 }
