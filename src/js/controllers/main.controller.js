@@ -3,16 +3,12 @@ angular
   .controller('MainCtrl', MainCtrl);
 
 MainCtrl.$inject = [
-  '$http',
   'CurrentUserService',
-  'TokenService',
   '$rootScope',
   '$state'
 ];
 function MainCtrl(
-  $http,
   CurrentUserService,
-  TokenService,
   $rootScope,
   $state
 ) {

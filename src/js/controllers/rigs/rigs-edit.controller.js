@@ -6,13 +6,17 @@ RigsEditCtrl.$inject = [
   'Rig',
   'Parttype',
   'Part',
-  '$stateParams'
+  '$stateParams',
+  '$rootScope',
+  '$state'
 ];
 function RigsEditCtrl(
   Rig,
   Parttype,
   Part,
-  $stateParams
+  $stateParams,
+  $rootScope,
+  $state
 ) {
   const vm = this;
 
@@ -37,9 +41,11 @@ function RigsEditCtrl(
       part_ids: newPartsReady
     }})
     .$promise
-    .then(rig => {
+    .then(res => {
       console.log('returned');
-      console.log(rig);
+      console.log(res);
+      $rootScope.$broadcast('userUpdate');
+      $state.go('rigsShow', {id: res.id});
     });
   };
 

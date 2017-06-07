@@ -20,10 +20,14 @@ Selection : {{rigs.partIds}}
 
   <div class="form-group" ng-repeat="type in rigs.types track by $index">
     <label>{{type.description}}</label>
-    <select class="form-control" ng-model="rigs.partIds[$index]">
+    <!-- <select class="form-control" ng-model="rigs.partIds[$index]">
       <option value="rigs.nullVal"></option>
       <option ng-repeat="part in type.parts" value="{{part.id}}">{{part.name}}</option>
+    </select> -->
+    <select ng-options="part.id as part.name for part in type.parts" ng-model="rigs.partIds[$index]">
+      <option value="">Select one</option>
     </select>
+    <!-- <select class="form-control" ng-model="rigs.partIds[$index]" ng-options=""></select> -->
   </div>
 
   <div class="form-group">
