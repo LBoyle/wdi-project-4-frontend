@@ -24,8 +24,7 @@ function RigsNewCtrl(
 
   vm.description = '';
   vm.partIds = [];
-  vm.nullVal = null;
-
+  
   vm.submitParts = () => {
     Rig.save({
       rig: {
