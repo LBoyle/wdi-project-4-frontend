@@ -2,6 +2,9 @@
   "name": "angular-gulp-setup",
   "version": "1.0.0",
   "description": "A example stack with gulp and angular",
+  "engines": {
+    "node": "7.7.x"
+  },
   "main": "index.js",
   "scripts": {
     "postinstall": "bower install && gulp deploy"
