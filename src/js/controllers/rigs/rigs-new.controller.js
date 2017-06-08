@@ -24,6 +24,7 @@ function RigsNewCtrl(
 
   vm.description = '';
   vm.partIds = [];
+  vm.errors = {};
 
   vm.submitParts = () => {
     Rig.save({
@@ -48,7 +49,7 @@ function RigsNewCtrl(
             return (`Incompatible with ${incompatibility.name}`);
           }
         }).filter(Boolean);
-        vm.errors = errors;
+        vm.errors[data.parttypes[0].parttype] = errors;
         console.log(errors);
       }, err => {
         console.error(err);
