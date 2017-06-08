@@ -3,7 +3,6 @@
 <div ng-hide="main.user" class="row">
   <h3>Please log in</h3>
 </div>
-{{rigs.errors}}
 <form name="rigs.rigForm" ng-submit="rigs.updateRig()" novalidate>
 
   <div class="form-group" ng-repeat="type in rigs.types track by $index">
@@ -11,18 +10,18 @@
     <select ng-options="part.id as part.name for part in type.parts" ng-model="rigs.newParts[type.parttype]" ng-change="rigs.checkValidation(rigs.newParts[type.parttype], type.parttype)">
       <option value="">Select one</option>
     </select>
-    {{rigs.errors[type.parttype]}}
+    <div class="ng-message-error" ng-messages="rigs.rigForm.$error" ng-show="rigs.errors[type.parttype]">
+      <p class="alert alert-danger" ng-repeat="error in rigs.errors[type.parttype]">{{error}}</p>
+    </div>
   </div>
-  <div class="ng-message-error" ng-messages="rigs.rigForm.$error" ng-show="rigs.errors[type.parttype].length">
-    <p ng-repeat="error in rigs.errors[type.parttype]">{{error}}</p>
-  </div>
+
 
   <div class="form-group">
     <label>Description</label>
     <input class="form-control" type="text" name="description" ng-model="rigs.rig.description" required>
   </div>
   <div class="ng-message-error" ng-messages="rigs.rigForm.description.$error" ng-show="(rigs.rigForm.$submitted || rigs.rigForm.description.$touched)">
-    <p ng-message="required">Please enter a description</p>
+    <p class="alert alert-danger" ng-message="required">Please enter a description</p>
   </div>
 
   <input class="btn btn-default" type="submit" value="Submit">

@@ -20,7 +20,6 @@ function RigsEditCtrl(
 ) {
   const vm = this;
 
-  vm.partIds = [];
   vm.newParts = {};
   vm.errors = {};
 
@@ -29,7 +28,6 @@ function RigsEditCtrl(
     vm.rig = rig;
     rig.parts.forEach(part => {
       vm.newParts[part.parttypes[0].parttype] = part.id;
-      vm.partIds.push(part.id);
     });
     return Parttype.query();
   }, err => {
@@ -66,11 +64,10 @@ function RigsEditCtrl(
       .$promise
       .then(data => {
         const errors = data.incompatibilities.map(incompatibility => {
-          if (vm.partIds.indexOf(incompatibility.id) >= 0) {
+          if (Object.values(vm.newParts).indexOf(incompatibility.id) >= 0) {
             return (`Incompatible with ${incompatibility.name}`);
           }
         }).filter(Boolean);
-        vm.partIds = vm.transposeToArr();
         vm.newParts[type] = data.id;
         vm.errors[type] = errors;
 
