@@ -1,3 +1,3 @@
 angular
   .module('pcBuilderApp')
-  .constant('API', `http://localhost:3000/api`);
+  .constant('API', `http://localhost:3000/api/`);

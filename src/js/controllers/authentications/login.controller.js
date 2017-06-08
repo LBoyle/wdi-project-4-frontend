@@ -5,14 +5,18 @@ angular
 LoginCtrl.$inject = [
   'User',
   'CurrentUserService',
-  '$state'
+  '$state',
+  'emailValidate'
 ];
 function LoginCtrl(
-  User, 
-  CurrentUserService, 
-  $state
+  User,
+  CurrentUserService,
+  $state,
+  emailValidate
 ) {
   const vm = this;
+
+  vm.emailValidate = emailValidate;
 
   vm.login = () => {
     User
