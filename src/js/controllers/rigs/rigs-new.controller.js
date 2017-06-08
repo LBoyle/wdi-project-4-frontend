@@ -30,7 +30,7 @@ function RigsNewCtrl(
       Rig.save({
         rig: {
           description: vm.description,
-          part_ids: vm.partIds.filter(id => id !== false && id != null)
+          part_ids: vm.partIds.filter(Boolean)
         }
       }).$promise
       .then(res => {

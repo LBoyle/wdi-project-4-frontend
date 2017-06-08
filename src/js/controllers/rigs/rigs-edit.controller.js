@@ -55,7 +55,7 @@ function RigsEditCtrl(
   };
 
   vm.transposeToArr = () => {
-    return Object.keys(vm.newParts).map(key => vm.newParts[key]).filter(id => id !== false && id != null);
+    return Object.keys(vm.newParts).map(key => vm.newParts[key]).filter(Boolean);
   };
 
   vm.checkValidation = (id, type) => {
