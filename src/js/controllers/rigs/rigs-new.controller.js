@@ -24,7 +24,7 @@ function RigsNewCtrl(
 
   vm.description = '';
   vm.partIds = [];
-  
+
   vm.submitParts = () => {
     Rig.save({
       rig: {
@@ -35,6 +35,21 @@ function RigsNewCtrl(
     .then(res => {
       $rootScope.$broadcast('userUpdate');
       $state.go('rigsShow', {id: res.id});
+    });
+  };
+
+  vm.checkValidation = (id) => {
+    Part.get({ id: id })
+    .$promise
+    .then(data => {
+      const errors = data.incompatibilities.map(incompatibility => {
+        if (vm.partIds.indexOf(incompatibility.id) >= 0) {
+          return (`Incompatible with ${incompatibility.name}`);
+        }
+      }).filter(Boolean);
+      console.log(errors);
+    }, err => {
+      console.error(err);
     });
   };
 
