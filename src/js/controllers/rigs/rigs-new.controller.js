@@ -6,7 +6,6 @@ RigsNewCtrl.$inject = [
   'Rig',
   'Part',
   'Parttype',
-  'filterFilter',
   'TokenService',
   '$rootScope',
   '$state'
@@ -15,7 +14,6 @@ function RigsNewCtrl(
   Rig,
   Part,
   Parttype,
-  filterFilter,
   TokenService,
   $rootScope,
   $state
@@ -36,10 +34,12 @@ function RigsNewCtrl(
     .then(res => {
       $rootScope.$broadcast('userUpdate');
       $state.go('rigsShow', {id: res.id});
+    }, err => {
+      console.error(err);
     });
   };
 
-  vm.checkValidation = (id) => {
+  vm.checkValidation = (id, type) => {
     if (id) {
       Part.get({ id: id })
       .$promise
@@ -49,16 +49,20 @@ function RigsNewCtrl(
             return (`Incompatible with ${incompatibility.name}`);
           }
         }).filter(Boolean);
-        vm.errors[data.parttypes[0].parttype] = errors;
+        vm.errors[type] = errors;
         console.log(errors);
       }, err => {
         console.error(err);
       });
+    } else {
+      vm.errors[type] = [];
     }
   };
 
   Parttype.query().$promise
   .then(types => {
     vm.types = types;
+  }, err => {
+    console.error(err);
   });
 }
