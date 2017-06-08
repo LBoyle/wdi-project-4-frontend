@@ -5,14 +5,18 @@ angular
 RegisterCtrl.$inject = [
   'User',
   'CurrentUserService',
-  '$state'
+  '$state',
+  'emailValidate'
 ];
 function RegisterCtrl(
-  User, 
-  CurrentUserService, 
-  $state
+  User,
+  CurrentUserService,
+  $state,
+  emailValidate
 ){
   const vm = this;
+
+  vm.emailValidate = emailValidate;
 
   vm.register = () => {
     User

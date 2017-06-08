@@ -4,7 +4,7 @@ angular
 
 Parttype.$inject = ['API', '$resource'];
 function Parttype(API, $resource) {
-  return $resource(`${API}/parttypes/:id`, {id: '@_id'},
+  return $resource(`${API}parttypes/:id`, {id: '@_id'},
     {
       'update': { method: 'PUT' }
     }

@@ -1,10 +1,19 @@
 <h1>Login</h1>
-<form ng-submit="login.login()">
+<form name="login.loginForm" ng-submit="login.login()">
   <div class="form-group">
-    <input class="form-control" type="email" name="email" ng-model="login.user.email" placeholder="Email">
+    <input class="form-control" type="email" name="email" ng-model="login.user.email" placeholder="Email" ng-pattern="login.emailValidate" required>
   </div>
+  <div class="ng-message-error" ng-messages="login.loginForm.email.$error" ng-show="(login.loginForm.$submitted || login.loginForm.email.$touched)">
+    <p ng-message="required">This field is required</p>
+    <p ng-message="pattern">Not a valid email</p>
+  </div>
+
   <div class="form-group">
-    <input class="form-control" type="password" name="password" ng-model="login.user.password" placeholder="Password">
+    <input class="form-control" type="password" name="password" ng-model="login.user.password" placeholder="Password" required>
   </div>
-  <input class="btn btn-primary" type="submit" value="Submit">
+  <div class="ng-message-error" ng-messages="login.loginForm.password.$error" ng-show="(login.loginForm.$submitted || login.loginForm.password.$touched)">
+    <p ng-message="required">This field is required</p>
+  </div>
+
+  <input class="btn btn-default" type="submit" value="Submit">
 </form>
