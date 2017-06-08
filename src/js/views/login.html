@@ -1,5 +1,5 @@
 <h1>Login</h1>
-<form name="login.loginForm" ng-submit="login.login()">
+<form name="login.loginForm" ng-submit="login.login()" novalidate>
   <div class="form-group">
     <input class="form-control" type="email" name="email" ng-model="login.user.email" placeholder="Email" ng-pattern="login.emailValidate" required>
   </div>
