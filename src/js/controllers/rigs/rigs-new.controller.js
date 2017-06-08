@@ -20,23 +20,28 @@ function RigsNewCtrl(
 ) {
   const vm = this;
 
+  vm.formIsValid = false;
   vm.description = '';
   vm.partIds = [];
   vm.errors = {};
 
   vm.submitParts = () => {
-    Rig.save({
-      rig: {
-        description: vm.description,
-        part_ids: vm.partIds.filter(id => id !== false && id != null)
-      }
-    }).$promise
-    .then(res => {
-      $rootScope.$broadcast('userUpdate');
-      $state.go('rigsShow', {id: res.id});
-    }, err => {
-      console.error(err);
-    });
+    if (vm.formIsValid) {
+      Rig.save({
+        rig: {
+          description: vm.description,
+          part_ids: vm.partIds.filter(id => id !== false && id != null)
+        }
+      }).$promise
+      .then(res => {
+        $rootScope.$broadcast('userUpdate');
+        $state.go('rigsShow', {id: res.id});
+      }, err => {
+        console.error(err);
+      });
+    } else {
+      console.log('form not valid');
+    }
   };
 
   vm.checkValidation = (id, type) => {
@@ -46,11 +51,12 @@ function RigsNewCtrl(
       .then(data => {
         const errors = data.incompatibilities.map(incompatibility => {
           if (vm.partIds.indexOf(incompatibility.id) >= 0) {
+            vm.formIsValid = false;
             return (`Incompatible with ${incompatibility.name}`);
           }
         }).filter(Boolean);
+        vm.formIsValid = (errors.length > 0) ? false : true;
         vm.errors[type] = errors;
-        console.log(errors);
       }, err => {
         console.error(err);
       });

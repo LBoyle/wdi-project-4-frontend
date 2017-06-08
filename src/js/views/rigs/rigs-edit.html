@@ -15,7 +15,7 @@
     </div>
   </div>
 
-
+<p>{{rigs.rig.description}}</p>
   <div class="form-group">
     <label>Description</label>
     <input class="form-control" type="text" name="description" ng-model="rigs.rig.description" required>
@@ -24,7 +24,7 @@
     <p class="alert alert-danger" ng-message="required">Please enter a description</p>
   </div>
 
-  <input class="btn btn-default" type="submit" value="Submit">
+  <input ng-disabled="!rigs.formIsValid" class="btn btn-default" type="submit" value="Submit">
 
 </form>
 <button class="btn btn-default" type="button" ng-click="rigs.deleteRig()">Delete</button>

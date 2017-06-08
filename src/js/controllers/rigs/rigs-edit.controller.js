@@ -68,10 +68,9 @@ function RigsEditCtrl(
             return (`Incompatible with ${incompatibility.name}`);
           }
         }).filter(Boolean);
+        vm.formIsValid = (errors.length > 0) ? false : true;
         vm.newParts[type] = data.id;
         vm.errors[type] = errors;
-
-        console.log(errors);
       }, err => {
         console.error(err);
       });
