@@ -4,7 +4,7 @@ angular
 
 Part.$inject = ['API', '$resource'];
 function Part(API, $resource) {
-  return $resource(`${API}/parts/:id`, {id: '@_id'},
+  return $resource(`${API}parts/:id`, {id: '@_id'},
     {
       'update': { method: 'PUT' }
     }
