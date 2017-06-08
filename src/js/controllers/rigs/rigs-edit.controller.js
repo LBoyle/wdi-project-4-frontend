@@ -55,7 +55,7 @@ function RigsEditCtrl(
   };
 
   vm.transposeToArr = () => {
-    return Object.keys(vm.newParts).map(key => vm.newParts[key]).filter(id => id !== false && id != null);
+    return Object.keys(vm.newParts).map(key => vm.newParts[key]).filter(Boolean);
   };
 
   vm.checkValidation = (id, type) => {
@@ -68,10 +68,9 @@ function RigsEditCtrl(
             return (`Incompatible with ${incompatibility.name}`);
           }
         }).filter(Boolean);
+        vm.formIsValid = (errors.length > 0) ? false : true;
         vm.newParts[type] = data.id;
         vm.errors[type] = errors;
-
-        console.log(errors);
       }, err => {
         console.error(err);
       });
