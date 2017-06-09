@@ -2,14 +2,39 @@
 .text-centered, h1, h3 {
   text-align: center;
 }
-.container-fluid {
+.container-fluid, nav {
   padding: 0;
-  margin: 0;
-}
-nav {
-  margin-bottom: 0 !important;
+  margin: 0 !important;
 }
 body {
   height: 100%;
   width: 100%;
+}
+.lp-intro {
+  width: inherit;
+  z-index:  20;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  margin:  200px auto 0 auto;
+  position: relative;
+  border-radius: 0;
+}
+.lp-container {
+  background:  url(http://img.gawkerassets.com/img/17zglcf8ljoa8jpg/original.jpg) no-repeat center center;
+  height: 92vh;
+  width: 100vw;
+  opacity: 0.5;
+  position: absolute;
+  margin: 0 auto;
+}
+.form-container {
+  width: 70%;
+  padding: 20px;
+  background: rgba(0,0,0,0.7);
+  margin: 50px auto 0 auto;
+  border: 1px solid white;
+  h1 {
+    color: white;
+    padding-bottom: 20px;
+  }
 }
