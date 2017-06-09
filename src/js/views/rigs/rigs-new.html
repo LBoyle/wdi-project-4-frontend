@@ -4,8 +4,8 @@
 
   <div class="form-group" ng-repeat="type in rigs.types track by $index">
 
-    <label>{{type.description}}</label>
-    <select ng-options="part.id as part.name for part in type.parts" ng-model="rigs.partIds[$index]" ng-change="rigs.checkValidation(rigs.partIds[$index], type.parttype)">
+    <label>{{type.description}}</label><br>
+    <select class="form-control" ng-options="part.id as part.name for part in type.parts" ng-model="rigs.partIds[$index]" ng-change="rigs.checkValidation(rigs.partIds[$index], type.parttype)">
       <option value="">Select one</option>
     </select>
 

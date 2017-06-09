@@ -2,3 +2,14 @@
 .text-centered, h1, h3 {
   text-align: center;
 }
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+nav {
+  margin-bottom: 0 !important;
+}
+body {
+  height: 100%;
+  width: 100%;
+}

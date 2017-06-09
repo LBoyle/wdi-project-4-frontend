@@ -7,7 +7,7 @@
 
   <div class="form-group" ng-repeat="type in rigs.types track by $index">
     <label>{{type.description}}</label>
-    <select ng-options="part.id as part.name for part in type.parts" ng-model="rigs.newParts[type.parttype]" ng-change="rigs.checkValidation(rigs.newParts[type.parttype], type.parttype)">
+    <select class="form-control" ng-options="part.id as part.name for part in type.parts" ng-model="rigs.newParts[type.parttype]" ng-change="rigs.checkValidation(rigs.newParts[type.parttype], type.parttype)">
       <option value="">Select one</option>
     </select>
     <div class="ng-message-error" ng-messages="rigs.rigForm.$error" ng-show="rigs.errors[type.parttype]">

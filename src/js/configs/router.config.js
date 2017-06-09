@@ -36,6 +36,11 @@ function Router(
       templateUrl: '/js/views/rigs/rigs-index.html',
       controller: 'RigsIndexCtrl as rigs'
     })
+    .state('rigsNew', {
+      url: '/rigs/new',
+      templateUrl: '/js/views/rigs/rigs-new.html',
+      controller: 'RigsNewCtrl as rigs'
+    })
     .state('rigsShow', {
       url: '/rigs/:id',
       templateUrl: '/js/views/rigs/rigs-show.html',
@@ -45,11 +50,6 @@ function Router(
       url: '/rigs/:id/edit',
       templateUrl: '/js/views/rigs/rigs-edit.html',
       controller: 'RigsEditCtrl as rigs'
-    })
-    .state('rigsNew', {
-      url: '/rigs/new',
-      templateUrl: '/js/views/rigs/rigs-new.html',
-      controller: 'RigsNewCtrl as rigs'
     })
     .state('partsShow', {
       url: '/parts/:id',

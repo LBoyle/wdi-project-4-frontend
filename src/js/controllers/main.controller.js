@@ -16,6 +16,10 @@ function MainCtrl(
 
   vm.isNavCollapsed = true;
 
+  $rootScope.$on('$stateChangeSuccess', () => {
+    vm.isNavCollapsed = true;
+  });
+
   $rootScope.$on('loggedIn', () => {
     vm.user = CurrentUserService.currentUser;
   });
