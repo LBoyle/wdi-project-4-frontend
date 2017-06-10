@@ -1,10 +1,9 @@
-<h1>Rigs Edit</h1>
-
 <div ng-hide="main.user" class="row">
   <h3>Please log in</h3>
 </div>
 
 <div class="form-container">
+  <h1>Edit your machine</h1>
   <form name="rigs.rigForm" ng-submit="rigs.updateRig()" novalidate>
 
     <div class="form-group" ng-repeat="type in rigs.types track by $index">
@@ -29,6 +28,6 @@
     <input ng-disabled="!rigs.formIsValid" class="btn btn-default" type="submit" value="Submit">
 
   </form>
-  <button class="btn btn-default" type="button" ng-click="rigs.deleteRig()">Delete</button>
+  <button class="btn btn-danger" type="button" ng-click="rigs.deleteRig()">Delete</button>
 
 </div>

@@ -10,6 +10,9 @@ body {
   height: 100%;
   width: 100%;
 }
+a, md-active {
+  color: red;
+}
 .lp-intro {
   width: inherit;
   z-index:  20;
@@ -37,4 +40,22 @@ body {
     color: white;
     padding-bottom: 20px;
   }
+}
+.part-box {
+  border: 1px solid black;
+  height: 200px;
+}
+
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important;
+}
+.tabsdemoDynamicHeight md-content md-tabs {
+  background: #f6f6f6;
+  border: 1px solid #e1e1e1;
+}
+.tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+  background: white;
+}
+.tabsdemoDynamicHeight md-content h1:first-child {
+  margin-top: 0;
 }

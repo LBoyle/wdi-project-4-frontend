@@ -1,9 +1,8 @@
 <h1>Parts Show</h1>
 
 <div class="row">
-  {{parts.part.image}}
   <div class="col-sm-4" style="height:300px;width:300px;">
-    <img ng-src="parts.part.image" alt="{{parts.part.name}}">
+    <img ng-src="{{parts.part.image}}" alt="{{parts.part.name}}">
   </div>
 
   <div class="col-sm-8">
@@ -13,14 +12,6 @@
       <li>{{parts.part.parttypes[0].description}}</li>
     </ul>
     <p>{{parts.part.spec}}</p>
-    <!-- <p>{{parts.part}}</p> -->
   </div>
 
 </div>
-
-<!-- <div class="row">
-  <h3>Incompatibilities</h3>
-  <div class="col-sm-6 col-md-4" ng-repeat="incompatibitily in parts.part.incompatibilities">
-    {{incompatibitily.name}}
-  </div>
-</div> -->

@@ -1,22 +1,48 @@
-<h1>Rigs Show</h1>
-
-
-<div class="row">
-  <h4>{{rigs.rig.description}}</h4>
-  <p>Posted by: {{rigs.rig.user.username}}</p>
+<div class="row text-centered">
+  <h1>{{rigs.rig.description}}</h1>
+  <h4>Posted by: <a>{{rigs.rig.user.username}}</a></h4>
 </div>
 
-<div class="row centered">
-  <h3>Parts</h3>
-</div>
-<div class="row">
-  <div class="col-sm-6 col-md-4" ng-repeat="part in rigs.rig.parts">
-    <ul>
-      <li><strong>{{part.name}}</strong></li>
-      <li>{{part.description}}</li>
-      <li>£ {{part.price}}.00</li>
-      <li>{{part.spec}}</li>
-      <li><a ui-sref="partsShow({id: part.id})">View</a></li>
-    </ul>
-  </div>
-</div>
+<!-- ui-bootstrap tabs section -->
+
+<uib-tabset active="activeJustified" justified="true">
+
+  <uib-tab heading="Overview">
+
+    <h1 class="md-display-2">Overview</h1>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 part-box" ng-repeat="part in rigs.rig.parts">
+        <h3>{{part.parttypes[0].description}}</h3>
+        <ul>
+          <li><strong>{{part.name}}</strong></li>
+          <li>{{part.description}}</li>
+          <li>£ {{part.price}}.00</li>
+          <li>{{part.spec}}</li>
+        </ul>
+      </div>
+    </div>
+
+  </uib-tab>
+
+  <uib-tab heading="{{part.parttypes[0].parttype}}" ng-repeat="part in rigs.rig.parts track by $index">
+
+    <h1 class="md-display-2">{{part.name}}</h1>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <img ng-src="{{part.image}}" alt="{{part.name}}">
+      </div>
+
+      <div class="col-xs-12 col-sm-8">
+        <ul>
+          <li><strong>{{part.name}}</strong></li>
+          <li>{{part.description}}</li>
+          <li>£ {{part.price}}.00</li>
+          <li>{{part.spec}}</li>
+          <li><a ui-sref="partsShow({id: part.id})">View</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </uib-tab>
+
+</uib-tabset>
