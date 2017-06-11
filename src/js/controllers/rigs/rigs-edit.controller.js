@@ -22,6 +22,7 @@ function RigsEditCtrl(
 
   vm.newParts = {};
   vm.errors = {};
+  vm.recentPart = {};
 
   Rig.get($stateParams).$promise
   .then(rig => {
@@ -63,6 +64,7 @@ function RigsEditCtrl(
       Part.get({ id: id })
       .$promise
       .then(data => {
+        vm.recentPart = data;
         const errors = data.incompatibilities.map(incompatibility => {
           if (Object.values(vm.newParts).indexOf(incompatibility.id) >= 0) {
             return (`Incompatible with ${incompatibility.name}`);

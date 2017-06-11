@@ -1,5 +1,8 @@
 // Import all of your scss files here
 // @import 'font-awesome';
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+  display: none !important;
+}
 .text-centered, h1, h3 {
   text-align: center;
 }

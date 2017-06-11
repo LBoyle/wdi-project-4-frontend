@@ -1,33 +1,53 @@
-<div ng-hide="main.user" class="row">
-  <h3>Please log in</h3>
-</div>
+<div class="row" style="margin: 0;">
+  <div class="rigform-container col-sm-6">
+    <h1>Choose parts</h1>
+    <form name="rigs.rigForm" ng-submit="rigs.updateRig()" novalidate>
 
-<div class="form-container">
-  <h1>Edit your machine</h1>
-  <form name="rigs.rigForm" ng-submit="rigs.updateRig()" novalidate>
-
-    <div class="form-group" ng-repeat="type in rigs.types track by $index">
-      <label>{{type.description}}</label>
-      <select class="form-control" ng-options="part.id as part.name for part in type.parts" ng-model="rigs.newParts[type.parttype]" ng-change="rigs.checkValidation(rigs.newParts[type.parttype], type.parttype)">
-        <option value="">Select one</option>
-      </select>
-      <div class="ng-message-error" ng-messages="rigs.rigForm.$error" ng-show="rigs.errors[type.parttype]">
-        <p class="alert alert-danger" ng-repeat="error in rigs.errors[type.parttype]">{{error}}</p>
+      <div class="form-group" ng-repeat="type in rigs.types track by $index">
+        <label>{{type.description}}</label>
+        <select class="form-control" ng-options="part.id as part.name for part in type.parts" ng-model="rigs.newParts[type.parttype]" ng-change="rigs.checkValidation(rigs.newParts[type.parttype], type.parttype)">
+          <option value="">Select one</option>
+        </select>
+        <div class="ng-message-error" ng-messages="rigs.rigForm.$error" ng-show="rigs.errors[type.parttype]">
+          <p class="alert alert-danger" ng-repeat="error in rigs.errors[type.parttype]">{{error}}</p>
+        </div>
       </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <input class="form-control" type="text" name="description" ng-model="rigs.rig.description" required>
+      </div>
+      <div class="ng-message-error" ng-messages="rigs.rigForm.description.$error" ng-show="(rigs.rigForm.$submitted || rigs.rigForm.description.$touched)">
+        <p class="alert alert-danger" ng-message="required">Please enter a description</p>
+      </div>
+
+      <input ng-disabled="!rigs.formIsValid" class="btn btn-default" type="submit" value="Submit">
+    </form>
+    <button class="btn btn-danger" type="button" name="button" ng-click="rigs.deleteRig()">Delete</button>
+  </div>
+
+  <div class="col-sm-6">
+
+    <div class="text-centered" ng-hide="rigs.recentPart.name">
+      <br><br>
+      <h3>Choose a part to preview it here</h3>
     </div>
 
-  <p>{{rigs.rig.description}}</p>
-    <div class="form-group">
-      <label>Description</label>
-      <input class="form-control" type="text" name="description" ng-model="rigs.rig.description" required>
-    </div>
-    <div class="ng-message-error" ng-messages="rigs.rigForm.description.$error" ng-show="(rigs.rigForm.$submitted || rigs.rigForm.description.$touched)">
-      <p class="alert alert-danger" ng-message="required">Please enter a description</p>
+    <div ng-show="rigs.recentPart.name">
+      <img ng-src="{{rigs.recentPart.image}}" alt="{{rigs.recentPart.name}}">
+      <h3>{{rigs.recentPart.name}}</h3>
+      <hr>
+      <h4>Details</h4>
+      <p>{{rigs.recentPart.description}}</p>
+      <p>{{rigs.recentPart.parttypes[0].description}}</p>
+      <p>Approximate price: £{{rigs.recentPart.price}}.00</p>
+      <hr>
+      <h4>Specifications</h4>
+      <ul>
+        <li ng-repeat="line in rigs.recentPart.spec.split(',')">{{line}}</li>
+      </ul>
     </div>
 
-    <input ng-disabled="!rigs.formIsValid" class="btn btn-default" type="submit" value="Submit">
-
-  </form>
-  <button class="btn btn-danger" type="button" ng-click="rigs.deleteRig()">Delete</button>
+  </div>
 
 </div>

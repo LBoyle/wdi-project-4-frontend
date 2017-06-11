@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="pcBuilderApp">
+<html>
 <head>
   <meta charset="utf-8">
   <title>PC Part Picker</title>
@@ -11,56 +11,59 @@
   <!-- endinject -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
 </head>
-<body ng-controller="MainCtrl as main">
+<body ng-app="pcBuilderApp" class="ng-cloak" ng-cloak>
+  <main ng-controller="MainCtrl as main">
 
-  <header>
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+    <header>
+      <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
-          <a class="navbar-brand" ui-sref="home">pcBuilderApp</a><span class="navbar-brand" ng-show="main.user"> - {{main.user.username}}</span>
+          <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="home">pcBuilderApp</a><span class="navbar-brand" ng-show="main.user"> - {{main.user.username}}</span>
+          </div>
         </div>
+        <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-hide="main.user">
+              <a ui-sref="register">Register</a>
+            </li>
+            <li ng-hide="main.user">
+              <a ui-sref="login">Login</a>
+            </li>
+            <li ng-show="main.user">
+              <a ui-sref="rigsIndex">Completes</a>
+            </li>
+            <li ng-show="main.user">
+              <a ui-sref="rigsNew">Build your own</a>
+            </li>
+            <li ng-show="main.user">
+              <a ng-click="main.logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="container-fluid" ui-view></div>
+    <footer class="footer">
+      <div class="container text-centered">
+        <p class="text-muted">Site by Louis Boyle</p>
+        <a href="http://github.com/LBoyle">
+          <i class="fa fa-github fa-2x"></i>
+        </a>
+        <a href="https://twitter.com/BrittleSkydiver">
+          <i class="fa fa-twitter fa-2x"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/louis-boyle">
+          <i class="fa fa-linkedin fa-2x"></i>
+        </a>
       </div>
-      <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
-        <ul class="nav navbar-nav navbar-right">
-          <li ng-hide="main.user">
-            <a ui-sref="register">Register</a>
-          </li>
-          <li ng-hide="main.user">
-            <a ui-sref="login">Login</a>
-          </li>
-          <li ng-show="main.user">
-            <a ui-sref="rigsIndex">Completes</a>
-          </li>
-          <li ng-show="main.user">
-            <a ui-sref="rigsNew">Build your own</a>
-          </li>
-          <li ng-show="main.user">
-            <a ng-click="main.logout()">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <main class="container-fluid" ui-view></main>
-  <footer class="footer">
-    <div class="container text-centered">
-      <p class="text-muted">Site by Louis Boyle</p>
-      <a href="http://github.com/LBoyle">
-        <i class="fa fa-github fa-2x"></i>
-      </a>
-      <a href="https://twitter.com/BrittleSkydiver">
-        <i class="fa fa-twitter fa-2x"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/louis-boyle">
-        <i class="fa fa-linkedin fa-2x"></i>
-      </a>
-    </div>
-  </footer>
+    </footer>
+
+  </main>
 </body>
 </html>

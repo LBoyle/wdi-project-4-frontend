@@ -24,7 +24,6 @@ function RigsNewCtrl(
   vm.description = '';
   vm.partIds = [];
   vm.errors = {};
-  vm.recentPart = {};
 
   vm.submitParts = () => {
     if (vm.formIsValid) {
