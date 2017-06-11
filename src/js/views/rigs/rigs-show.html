@@ -3,53 +3,17 @@
   <h4>Posted by: <a ui-sref="usersShow({id: rigs.rig.user.id})">{{rigs.rig.user.username}}</a></h4>
 </div>
 
-<!-- ui-bootstrap tabs section -->
-
 <uib-tabset active="activeJustified">
 
   <uib-tab heading="Overview">
-
     <h1 class="md-display-2">Overview</h1>
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="part in rigs.rig.parts">
-
-        <div class="panel panel-default" style="padding: 0;margin: 10px;">
-          <div class="panel-body">
-            <h4>{{part.parttypes[0].description}}</h4>
-            <p><strong>{{part.name}}</strong></p>
-            <p>{{part.description}}</p>
-            <p>£ {{part.price}}.00</p>
-          </div>
-        </div>
-
-      </div>
+      <partcards partlist="rigs.rig.parts"></partcards>
     </div>
-
   </uib-tab>
 
   <uib-tab heading="{{part.parttypes[0].parttype}}" ng-repeat="part in rigs.rig.parts track by $index">
-
-    <h1 class="md-display-2">{{part.name}}</h1>
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <img ng-src="{{part.image}}" alt="{{part.name}}">
-      </div>
-
-      <div class="col-xs-12 col-sm-7 col-sm-offset-1">
-        <p>Details</p>
-        <ul>
-          <li><strong>{{part.name}}</strong></li>
-          <li>{{part.description}}</li>
-          <li>£ {{part.price}}.00</li>
-          <li><a ui-sref="partsShow({id: part.id})">View</a></li>
-        </ul>
-        <p>Specifications</p>
-        <ul>
-          <li ng-repeat="line in part.spec.split(',')">{{line}}</li>
-        </ul>
-      </div>
-    </div>
-
+    <parttab part="part"></parttab>
   </uib-tab>
 
 </uib-tabset>

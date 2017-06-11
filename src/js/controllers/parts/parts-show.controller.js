@@ -7,10 +7,11 @@ PartsShowCtrl.$inject = [
   '$stateParams'
 ];
 function PartsShowCtrl(
-  Part, 
+  Part,
   $stateParams
 ) {
   const vm = this;
+  vm.showpartlink = false;
 
   Part.get($stateParams).$promise
   .then(part => {

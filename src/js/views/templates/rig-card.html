@@ -1,0 +1,15 @@
+
+
+<div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="rig in rigslist">
+  <div class="panel panel-default" style="padding: 0;margin: 10px;">
+    <div class="panel-body">
+      <h4>{{rig.description}}</h4>
+      <p ng-show="{{rigs.showusers||home.showusers||users.showusers}}">Saved by {{rig.user.username}}</p>
+    </div>
+    <br>
+    <div class="panel-footer">
+      <button class="btn btn-default" ui-sref="rigsShow({id: rig.id})">View</button>
+      <button ng-show="{{rigs.showeditbtn||home.showeditbtn||users.showeditbtn}}" style="margin-left: 5px;" class="btn btn-default" ui-sref="rigsEdit({id: rig.id})">Edit</button>
+    </div>
+  </div>
+</div>
