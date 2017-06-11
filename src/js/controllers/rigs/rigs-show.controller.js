@@ -11,7 +11,7 @@ function RigsShowCtrl(
   $stateParams
 ) {
   const vm = this;
-  vm.showpartlink = true;
+  vm.showpartlinks = true;
 
   Rig.get($stateParams).$promise
   .then(rig => {

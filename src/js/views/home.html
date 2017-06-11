@@ -1,10 +1,8 @@
 <div ng-hide="main.user" class="row container-fluid">
-    <div class="lp-container">
-      <h2 class="lp-intro well well-lg text-centered">Welcome to the PC Builder App</h2>
-    </div>
+  <div class="lp-container">
+    <h2 class="lp-intro well well-lg text-centered">Welcome to the PC Builder App</h2>
+  </div>
 </div>
-
-
 
 <div ng-show="main.user" class="container">
   <div class="row">
@@ -14,20 +12,9 @@
   <hr>
   <h3>Your machines</h3>
   <div class="row">
-    <!-- <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="rig in main.user.rigs">
-      <div class="panel panel-default" style="padding: 0;margin: 10px;">
-        <div class="panel-body">
-          <h4>{{rig.description}}</h4>
-        </div>
-        <br>
-        <div class="panel-footer">
-          <button class="btn btn-default" ui-sref="rigsShow({id: rig.id})">View</button>
-          <button style="margin-left: 5px;" class="btn btn-default" ui-sref="rigsEdit({id: rig.id})">Edit</button>
-        </div>
-      </div>
-    </div> -->
 
     <rigcards rigslist="main.user.rigs"></rigcards>
+
   </div>
 </div>
 <div ng-hide="main.user" style="height:500px;"></div>

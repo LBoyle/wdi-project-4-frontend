@@ -36,6 +36,9 @@
               <a ui-sref="login">Login</a>
             </li>
             <li ng-show="main.user">
+              <a ui-sref="partsIndex">Browse Parts</a>
+            </li>
+            <li ng-show="main.user">
               <a ui-sref="rigsIndex">Completes</a>
             </li>
             <li ng-show="main.user">
@@ -50,7 +53,7 @@
     </header>
 
     <div class="container-fluid" ui-view></div>
-    
+
     <footer class="footer">
       <div class="container text-centered">
         <p class="text-muted">Site by Louis Boyle</p>

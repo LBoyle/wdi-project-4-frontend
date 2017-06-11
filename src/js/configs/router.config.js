@@ -56,6 +56,11 @@ function Router(
       templateUrl: '/js/views/parts/parts-show.html',
       controller: 'PartsShowCtrl as parts'
     })
+    .state('partsIndex', {
+      url: '/parts',
+      templateUrl: '/js/views/parts/parts-index.html',
+      controller: 'PartsIndexCtrl as parts'
+    })
     .state('usersShow', {
       url: '/users/:id',
       templateUrl: '/js/views/users/users-show.html',

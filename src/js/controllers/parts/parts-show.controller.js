@@ -11,7 +11,7 @@ function PartsShowCtrl(
   $stateParams
 ) {
   const vm = this;
-  vm.showpartlink = false;
+  vm.showpartlinks = false;
 
   Part.get($stateParams).$promise
   .then(part => {

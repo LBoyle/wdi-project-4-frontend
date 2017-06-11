@@ -1,5 +1,8 @@
 <div class="row">
+  {{parts.showpartlinks}}
+  {{rigs.showpartlinks}}
   <h1 class="md-display-2">{{part.name}}</h1>
+
   <div class="col-xs-12 col-sm-4">
     <img ng-src="{{part.image}}" alt="{{part.name}}">
   </div>
@@ -9,14 +12,15 @@
     <ul>
       <li><strong>{{part.name}}</strong></li>
       <li>{{part.description}}</li>
-      <li>£ {{part.price}}.00</li>
-      <li>{{rigs.showpartlink}}</li>
-      <li>{{parts.showpartlink}}</li>
-      <li ng-show="{{rigs.showpartlink||parts.showpartlink}}"><a ui-sref="partsShow({id: part.id})">View</a></li>
+      <li>£{{part.price}}.00</li>
+      <li>{{parts.showpartlinks}}</li><!-- -->
+      <li>{{rigs.showpartlinks}}</li><!-- -->
+      <li><a ui-sref="partsShow({id: part.id})">View</a></li>
     </ul>
     <p>Specifications</p>
     <ul>
       <li ng-repeat="line in part.spec.split(',')">{{line}}</li>
     </ul>
   </div>
+
 </div>

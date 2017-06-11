@@ -1,0 +1,10 @@
+<h1>Parts By Type</h1>
+
+<uib-tabset>
+
+  <uib-tab ng-repeat="type in parts.types" heading="{{type.parttype}}">
+    <parttab ng-repeat="part in type.parts" part="part"></parttab>
+    <hr>
+  </uib-tab>
+
+</uib-tabset>
