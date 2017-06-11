@@ -5,13 +5,18 @@
     <img ng-src="{{parts.part.image}}" alt="{{parts.part.name}}">
   </div>
 
-  <div class="col-sm-8">
+  <div class="col-sm-7 col-sm-offset-1">
+    <p>Details</p>
     <ul>
       <li><strong>{{parts.part.name}}</strong></li>
       <li>{{parts.part.description}}</li>
       <li>{{parts.part.parttypes[0].description}}</li>
+      <li>£ {{parts.part.price}}.00</li>
     </ul>
-    <p>{{parts.part.spec}}</p>
+    <p>Specifications</p>
+    <ul>
+      <li ng-repeat="line in parts.part.spec.split(',')">{{line}}</li>
+    </ul>
   </div>
 
 </div>

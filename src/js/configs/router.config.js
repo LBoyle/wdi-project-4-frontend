@@ -55,6 +55,11 @@ function Router(
       url: '/parts/:id',
       templateUrl: '/js/views/parts/parts-show.html',
       controller: 'PartsShowCtrl as parts'
+    })
+    .state('usersShow', {
+      url: '/users/:id',
+      templateUrl: '/js/views/users/users-show.html',
+      controller: 'UsersShowCtrl as users'
     });
 
   $urlRouterProvider.otherwise('/');

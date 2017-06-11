@@ -1,11 +1,11 @@
 <div class="row text-centered">
   <h1>{{rigs.rig.description}}</h1>
-  <h4>Posted by: <a>{{rigs.rig.user.username}}</a></h4>
+  <h4>Posted by: <a ui-sref="usersShow({id: rigs.rig.user.id})">{{rigs.rig.user.username}}</a></h4>
 </div>
 
 <!-- ui-bootstrap tabs section -->
 
-<uib-tabset active="activeJustified" justified="true">
+<uib-tabset active="activeJustified">
 
   <uib-tab heading="Overview">
 
@@ -17,7 +17,7 @@
           <li><strong>{{part.name}}</strong></li>
           <li>{{part.description}}</li>
           <li>£ {{part.price}}.00</li>
-          <li>{{part.spec}}</li>
+          <!-- <li>{{part.spec.split(',').join(', ')}}</li> -->
         </ul>
       </div>
     </div>
@@ -32,13 +32,17 @@
         <img ng-src="{{part.image}}" alt="{{part.name}}">
       </div>
 
-      <div class="col-xs-12 col-sm-8">
+      <div class="col-xs-12 col-sm-7 col-sm-offset-1">
+        <p>Details</p>
         <ul>
           <li><strong>{{part.name}}</strong></li>
           <li>{{part.description}}</li>
           <li>£ {{part.price}}.00</li>
-          <li>{{part.spec}}</li>
           <li><a ui-sref="partsShow({id: part.id})">View</a></li>
+        </ul>
+        <p>Specifications</p>
+        <ul>
+          <li ng-repeat="line in part.spec.split(',')">{{line}}</li>
         </ul>
       </div>
     </div>

@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>PC Part Picker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
   <!-- endinject -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
 </head>
 <body ng-controller="MainCtrl as main">
 
@@ -46,8 +48,19 @@
     </nav>
   </header>
   <main class="container-fluid" ui-view></main>
-  <footer>
-
+  <footer class="footer">
+    <div class="container text-centered">
+      <p class="text-muted">Site by Louis Boyle</p>
+      <a href="http://github.com/LBoyle">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      <a href="https://twitter.com/BrittleSkydiver">
+        <i class="fa fa-twitter fa-2x"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/louis-boyle">
+        <i class="fa fa-linkedin fa-2x"></i>
+      </a>
+    </div>
   </footer>
 </body>
 </html>

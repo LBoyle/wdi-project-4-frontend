@@ -1,4 +1,5 @@
 // Import all of your scss files here
+// @import 'font-awesome';
 .text-centered, h1, h3 {
   text-align: center;
 }
@@ -6,11 +7,27 @@
   padding: 0;
   margin: 0 !important;
 }
+.footer {
+  clear: both;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  padding-top: 20px;
+  p, i {
+    display: inline;
+    padding: 0 10px;
+  }
+  p {
+    display: inline;
+    padding: 30px;
+  }
+}
 body {
+  min-height: 100vh;
   height: 100%;
   width: 100%;
 }
-a, md-active {
+a {
   color: red;
 }
 .lp-intro {
@@ -30,20 +47,29 @@ a, md-active {
   position: absolute;
   margin: 0 auto;
 }
+.rigform-container {
+  padding: 30px;
+  background: rgba(0,0,0,0.7);
+  // margin: 50px auto 0 auto;
+  border: 1px solid white;
+  color: white;
+}
 .form-container {
   width: 70%;
   padding: 20px;
   background: rgba(0,0,0,0.7);
   margin: 50px auto 0 auto;
   border: 1px solid white;
+  color: white;
   h1 {
-    color: white;
+
     padding-bottom: 20px;
   }
 }
 .part-box {
-  border: 1px solid black;
+  // border: 1px solid black;
   height: 200px;
+  // opacity: 0.5;
 }
 
 .tabsdemoDynamicHeight md-content {

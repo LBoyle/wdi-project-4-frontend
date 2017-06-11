@@ -24,6 +24,7 @@ function RigsNewCtrl(
   vm.description = '';
   vm.partIds = [];
   vm.errors = {};
+  vm.recentPart = {};
 
   vm.submitParts = () => {
     if (vm.formIsValid) {
@@ -49,6 +50,7 @@ function RigsNewCtrl(
       Part.get({ id: id })
       .$promise
       .then(data => {
+        vm.recentPart = data;
         const errors = data.incompatibilities.map(incompatibility => {
           if (vm.partIds.indexOf(incompatibility.id) >= 0) {
             vm.formIsValid = false;
