@@ -14,6 +14,8 @@ function PartsIndexCtrl(
   Parttype.query()
   .$promise
   .then(res => {
-    vm.types = res;
+    vm.types = res.map(type => {
+      if(type.parttype !== 'drive2') return type;
+    }).filter(Boolean);
   });
 }
