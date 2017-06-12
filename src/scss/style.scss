@@ -74,7 +74,15 @@ a {
   height: 200px;
   // opacity: 0.5;
 }
-
+.panel-footer {
+  background-color: red;
+}
+.delete-btn {
+  background-color: red;
+  border: 1px solid red;
+  color: white;
+  margin-top: 10px;
+}
 .tabsdemoDynamicHeight md-content {
   background-color: transparent !important;
 }
@@ -88,3 +96,53 @@ a {
 .tabsdemoDynamicHeight md-content h1:first-child {
   margin-top: 0;
 }
+.profile-pic {
+  margin-top: 10px;
+}
+div {
+  &.ng-enter {
+    transition: .5s;
+    opacity: 0;
+    // animation: 2s fadingIn linear;
+  }
+  &.ng-enter-active {
+    opacity: 1;
+  }
+  // &.ng-leave {
+  //   transition: .5s;
+  //   opacity: 1;
+  //   // animation: 2s fadingOut linear;
+  // }
+  // &.ng-leave-active {
+  //   opacity: 0;
+  // }
+}
+// @keyframes fadingIn {
+//   0% {
+//     opacity: 0;
+//     display: none;
+//   }
+//   50% {
+//     opacity: 0;
+//     display: none;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+//   // 100% {
+//   //   opacity: 1;
+//   // }
+// }
+// @keyframes fadingOut {
+//   0% {
+//     opacity: 1;
+//   }
+//   50% {
+//     opacity: 0;
+//     display: none;
+//   }
+//   100% {
+//     opacity: 0;
+//     display: none;
+//   }
+// }

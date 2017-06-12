@@ -9,8 +9,8 @@ function rigcards() {
   directive.replace = true;
   directive.templateUrl = '/js/views/templates/rig-card.html';
   directive.scope = {
-    rigslist: '=',
-    showpartlinks: '='
+    rigslist: '='
+    // showpartlinks: '='
   };
   return directive;
 }

@@ -1,19 +1,10 @@
-<h1>{{users.user.username}}</h1>
 
+
+<div class="row text-centered">
+  <img class="profile-pic" src="{{users.user.image}}" alt="profilepic" style="border-radius:50%;">
+  <h1>{{users.user.username}}</h1>
+</div>
 <div class="row">
-  <!-- <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="rig in users.user.rigs">
-    <div class="panel panel-default" style="padding: 0;margin: 10px;">
-      <div class="panel-body">
-        <h4>{{rig.description}}</h4>
-      </div>
 
-      <br>
-      <div class="panel-footer">
-        <button class="btn btn-default" ui-sref="rigsShow({id: rig.id})">View</button>
-      </div>
-    </div>
-
-
-  </div> -->
   <rigcards rigslist="users.user.rigs"></rigcards>
 </div>

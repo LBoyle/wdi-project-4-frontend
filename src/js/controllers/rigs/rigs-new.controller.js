@@ -20,10 +20,12 @@ function RigsNewCtrl(
 ) {
   const vm = this;
 
-  vm.formIsValid = false;
+  vm.formIsValid = true;
   vm.description = '';
   vm.partIds = [];
   vm.errors = {};
+  vm.partsNotAllowed = [];
+  vm.filteredParts = {};
 
   vm.submitParts = () => {
     if (vm.formIsValid) {
@@ -50,26 +52,55 @@ function RigsNewCtrl(
       .$promise
       .then(data => {
         vm.recentPart = data;
-        const errors = data.incompatibilities.map(incompatibility => {
-          if (vm.partIds.indexOf(incompatibility.id) >= 0) {
-            vm.formIsValid = false;
-            return (`Incompatible with ${incompatibility.name}`);
-          }
-        }).filter(Boolean);
-        vm.formIsValid = (errors.length > 0) ? false : true;
-        vm.errors[type] = errors;
+        vm.collectIncompatibilities();
       }, err => {
         console.error(err);
       });
     } else {
       vm.errors[type] = [];
+      vm.collectIncompatibilities();
     }
+  };
+
+  vm.collectIncompatibilities = () => {
+    vm.partsNotAllowed = [];
+    vm.partIds.filter(Boolean).forEach(id => {
+      Part.get({id: id}).$promise
+      .then(part => {
+        part.incompatibilities.forEach(incompatibility => {
+          vm.partsNotAllowed.push(incompatibility.id);
+        });
+      })
+      .then(() => {
+        vm.types.forEach(type => {
+          vm.filteredParts[type.parttype].parts = type.parts.map(part => {
+            if(vm.partsNotAllowed.indexOf(part.id) < 0) {
+              return part;
+            }
+          }).filter(Boolean);
+        });
+        vm.refreshTypes();
+      });
+    });
+  };
+
+  vm.refreshTypes = () => {
+    Parttype.query().$promise
+    .then(types => {
+      vm.types = types;
+    }, err => {
+      console.error(err);
+    });
   };
 
   Parttype.query().$promise
   .then(types => {
     vm.types = types;
+    types.forEach(type => {
+      vm.filteredParts[type.parttype] = type;
+    });
   }, err => {
     console.error(err);
   });
+
 }

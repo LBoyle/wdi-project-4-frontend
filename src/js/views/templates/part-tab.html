@@ -13,9 +13,7 @@
       <li><strong>{{part.name}}</strong></li>
       <li>{{part.description}}</li>
       <li>£{{part.price}}.00</li>
-      <li>{{parts.showpartlinks}}</li><!-- -->
-      <li>{{rigs.showpartlinks}}</li><!-- -->
-      <li><a ui-sref="partsShow({id: part.id})">View</a></li>
+      <li ng-show="showlinks"><a ui-sref="partsShow({id: part.id})">View</a></li>
     </ul>
     <p>Specifications</p>
     <ul>

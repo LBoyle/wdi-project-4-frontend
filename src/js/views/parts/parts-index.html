@@ -3,7 +3,7 @@
 <uib-tabset>
 
   <uib-tab ng-repeat="type in parts.types" heading="{{type.parttype}}">
-    <parttab ng-repeat="part in type.parts" part="part"></parttab>
+    <parttab ng-repeat="part in type.parts" part="part" showlinks="true"></parttab>
     <hr>
   </uib-tab>
 

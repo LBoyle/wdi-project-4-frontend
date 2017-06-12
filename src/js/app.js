@@ -7,6 +7,7 @@
     'angular-jwt',
     'ngAnimate',
     'ui.bootstrap',
-    'ngMessages'
+    'ngMessages',
+    'angular-loading-bar'
   ]);
 })();

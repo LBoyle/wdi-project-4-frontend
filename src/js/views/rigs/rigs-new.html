@@ -3,16 +3,18 @@
     <h1>Choose parts</h1>
     <form name="rigs.rigForm" ng-submit="rigs.submitParts()" novalidate>
 
-      <div class="form-group" ng-repeat="type in rigs.types track by $index">
+      <!--  -->
+
+      <div class="form-group" ng-repeat="type in rigs.filteredParts track by $index">
 
         <label>{{type.description}}</label><br>
         <select class="form-control" ng-options="part.id as part.name for part in type.parts" ng-model="rigs.partIds[$index]" ng-change="rigs.checkValidation(rigs.partIds[$index], type.parttype)">
           <option value="">Select one</option>
         </select>
 
-        <div class="ng-message-error" ng-messages="rigs.rigForm.$error" ng-show="rigs.errors[type.parttype]">
+        <!-- <div class="ng-message-error" ng-messages="rigs.rigForm.$error" ng-show="rigs.errors[type.parttype]">
           <p class="alert alert-danger" ng-repeat="error in rigs.errors[type.parttype]">{{error}}</p>
-        </div>
+        </div> -->
 
       </div>
 

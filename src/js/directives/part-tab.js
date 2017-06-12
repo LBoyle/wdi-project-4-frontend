@@ -9,7 +9,8 @@ function parttab() {
   directive.replace = true;
   directive.templateUrl = '/js/views/templates/part-tab.html';
   directive.scope = {
-    part: '='
+    part: '=',
+    showlinks: '='
   };
   return directive;
 }
