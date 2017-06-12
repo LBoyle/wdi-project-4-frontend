@@ -4,7 +4,6 @@
 </div>
 
 <uib-tabset>
-
   <uib-tab heading="Overview">
     <h1 class="md-display-2">Overview</h1>
     <div class="row">
@@ -15,5 +14,4 @@
   <uib-tab heading="{{part.parttypes[0].parttype}}" ng-repeat="part in rigs.rig.parts track by $index">
     <parttab part="part" showlinks="true"></parttab>
   </uib-tab>
-
 </uib-tabset>
