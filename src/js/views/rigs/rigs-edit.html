@@ -3,7 +3,7 @@
     <h1>Choose parts</h1>
     <form name="rigs.rigForm" ng-submit="rigs.updateRig()" novalidate>
 
-      <div class="form-group" ng-repeat="type in rigs.types track by $index">
+      <div class="form-group" ng-repeat="type in rigs.filteredParts track by $index">
         <label>{{type.description}}</label>
         <select class="form-control" ng-options="part.id as part.name for part in type.parts" ng-model="rigs.newParts[type.parttype]" ng-change="rigs.checkValidation(rigs.newParts[type.parttype], type.parttype)">
           <option value="">Select one</option>

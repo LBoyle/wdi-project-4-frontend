@@ -61,7 +61,7 @@ This page, for now, serves as a record of the previous validation method. The ed
 
 Like I noted earlier, I mean to flesh out all of the views with more information about the products, but for the moment, it demonstrates the framework laid down to make additions easy. 
 
-I think the new computer form works properly, with one bug that occurs because I made a mistake in the seeds file, also top priority. 
+I think the new computer form works properly, the only bugs I've found happen because I made mistakes in the seeds file, also top priority. 
 
 ## Code excerpts and notes
 
