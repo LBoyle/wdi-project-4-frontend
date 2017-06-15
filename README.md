@@ -24,7 +24,7 @@ This is currently the second version.
 
 I have used a gulp setup provided by my instructors. 
 
-Download the repo and run ```yarn```, yarn runs ```bower i``` on its own.
+Download the repo and run ```yarn```, which runs ```bower i``` on its own.
 
 Ensure the back-end is running and run ```gulp``` to minify the code and start the server.
 
@@ -47,15 +47,25 @@ This page took a fairly long time and went through several itterations before I 
 
 Initially, I used ngMessages to show a warning when a part was incompatible with some other chosen part, but this led to too much clicking and I wanted to find another solution. 
 
-I looked around and found a few long-winded ways to make it happen, but in the end designed a function that could filter all other fields to only show parts compatible with previously selected parts. It doesn't matter which part you select first or if you leave slots empty, or change a decision after selecting more parts. You can unlock parts by selecting the empty option from the dropdown. 
+I looked around and found a few long-winded ways to make it happen, but in the end designed a function that could filter all other fields to only show parts compatible with previously selected parts. It doesn't matter which part you select first or if you leave slots empty, or change a decision after selecting more parts. You can unlock parts by selecting the empty or "Select one" option from the dropdown. 
 
 I had a few thoughts about using filterFilter but in the end used a few forEach loops. 
 
-Also, you get a preview of the part you've just selected on the right, or below on mobile. I mean to find a better way to browse parts from this page so you know what you're clicking on, perhaps show the price of the part in the menu.
+You get a preview of the part you've just selected on the right, or below on mobile. I mean to find a better way to browse parts from this page so you know what you're clicking on, perhaps show the price of the part in the menu as well.
 
 #### Edit page
 
-This page, for now, serves as a record of the previous validation method. The edit form works in a slightly different way to the new machine form, so it was not easy to convert, I don't have time right now, the form does work, and I suppose it might even be easier to delete a rig with mistakes and make a new one?
+**New**
+
+On the morning of the presentation, I went back to the edit form and quickly spotted the problem, changing it to behave in the same way as the new form, filtering out incompatible parts. I'm quite pleased with the result, It needs a little refactoring and better styling, but it's ok for the second sprint. 
+
+***
+
+**Old**
+
+This page, for now, serves as a record of the previous validation method. The edit form works in a slightly different way to the new form, so it was not easy to convert, I don't have time right now, the form does work, and I suppose it might even be easier to delete a rig with mistakes and make a new one?
+
+***
 
 #### Notes 
 
@@ -65,12 +75,12 @@ I think the new computer form works properly, the only bugs I've found happen be
 
 ## Code excerpts and notes
 
-I made a nice constant variable containing a regular expression to validate the email fields. I also made use of $rootScope to broadcast messages. 
+I made a constant variable containing a regular expression to validate the email fields. I also made use of $rootScope to broadcast messages. 
 
 If you've ever seen an angular app, you already know what most of the code looks like.
 
 
-This code comes from the page displaying details about a machine, showing the use of uib-tabs with ng-repeat and a custom directive.
+This code comes from the page displaying details about a machine, showing the use of uib-tabs with ng-repeat and two custom directives.
 
 ```
 <uib-tabset>
@@ -87,6 +97,9 @@ This code comes from the page displaying details about a machine, showing the us
 </uib-tabset>
 
 ```
+<small>I feel at this point I sould explaing why it's parttypes[0], I used a join table rather than a has many / belongs to relationship when making the api. When I encountered the problem later, I decided it was too much work to go back and recreate the models and test them at that time. </small>
+
+***
 
 This code is from the new computer controller, it is part of the process which lets me change the dropdown options, controlled using a promise chain.
 
@@ -121,11 +134,13 @@ I mean to refactor this, which I'm sure can be done.
 
 Fleshing out the information about parts, adding some more pictures etc.
 
-I mean to add a great many parts too the seeds file, though that would mean SO MUCH seeding incompatibilities, like hundred of lines of unreadable code. I'll still do it.  
+I mean to add a great many parts too the seeds file, though that would mean SO MUCH seeding incompatibilities, like hundred of lines of unreadable code. I'm looking for an external api that has taken care of it already. 
 
 I wondered about seperating by manufacturer like on the pcspecialist website, but with the form filtering, I don't think I need to do that. 
 
-Refactoring the form filtering, it works, but it seems a little long winded, perhaps I haven't made use of some method that will make it much simpler. 
+Refactoring the form filtering, it works, but it seems a little long winded, perhaps I haven't made use of some method that will make it much simpler.
+
+I mean to work a lot on the form interface, to make it clearer and more intuitive, maybe customize the dropdowns to look better or provide more information about each part. 
 
 I've used a simple minimal design and I haven't animated much, I want to work some more on it, or perhaps come up with something else, but it's not my strong suit. 
 
