@@ -24,5 +24,8 @@
     "angular-animate": "^1.6.4",
     "angular-messages": "^1.6.4",
     "font-awesome": "fontawesome#^4.7.0"
+  },
+  "resolutions": {
+    "angular": "1.5.8"
   }
 }
