@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A example stack with gulp and angular",
   "engines": {
-    "node": "7.7.3"
+    "node": "7.10.1"
   },
   "main": "index.js",
   "scripts": {
